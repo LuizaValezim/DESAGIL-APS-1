@@ -1,32 +1,34 @@
 package br.edu.insper.aps1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Carrinho {
-	private List<Pedido> pedidos;
+	private List<Pedido> listaPedidos;
 	
 	public Carrinho() {
-        this.pedidos = Collections.emptyList();
-    }
-
-	public List<Pedido> getPedido() {
-		return this.pedidos;
-	}
+		super();
+        this.listaPedidos = new ArrayList<Pedido>();    
+        }
 	
 	public void insereCarrinho(Produto produto) {
 		
-		for (Pedido Unitario: pedidos) {
-			if (Unitario.getProduto().getNome() == produto.getNome()) {
+		for (Pedido Unitario: listaPedidos) {
+			if (Unitario.getProduto().getCódigo() == produto.getCódigo()) {
 				Unitario.adicionaProduto();
+				return;
 				
 			}
 		}
-		if (Arrays.asList(pedidos).contains(produto.getNome()) == false) {
-			pedidos.add(new Pedido(produto));
+
+		listaPedidos.add(new Pedido(produto));
+		
 		}
 		
+	public List<Pedido> getListaPedidos() {
+		return listaPedidos;
 	}
 		
 }
