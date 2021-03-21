@@ -6,4 +6,4 @@
 
 **Integrantes**
 - Luiza Valezim Augusto Pinto (LuizaValezim)
-- Gabriel Vieira de Vasconcelos Vilaça Pinto (GabrielVVV)
+- Gabriel Vieira de Vasconcelos Vilaça Pinto (GabrielVVVP)
