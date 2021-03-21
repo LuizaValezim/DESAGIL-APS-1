@@ -1,12 +1,13 @@
 package br.edu.insper.aps1;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Carrinho {
 	private List<Pedido> pedidos;
 	
-	public Carrinho(List<Pedido> pedidos) {
+	public Carrinho() {
         this.pedidos = Collections.emptyList();
     }
 
@@ -21,10 +22,11 @@ public class Carrinho {
 				Unitario.adicionaProduto();
 				
 			}
-			else if (Unitario.getProduto().getNome() != produto.getNome()){
-				pedidos.add(new Pedido(produto));
-			}
+		}
+		if (Arrays.asList(pedidos).contains(produto.getNome()) == false) {
+			pedidos.add(new Pedido(produto));
 		}
 		
 	}
+		
 }

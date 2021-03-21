@@ -7,7 +7,7 @@ import java.util.Map;
 public class Caixa {
 	private Map<Integer, Integer> descontos = new HashMap<>();
 	
-	public Caixa(Map<Integer, Integer> descontos) {
+	public Caixa() {
 		this.descontos = Collections.emptyMap();
     }
 	
