@@ -25,4 +25,8 @@ public class Pedido {
 		return (produto.getPreço() * this.quantidade);
 	}
 
+	public double totalCompra() {
+		return 0;
+	}
+
 }

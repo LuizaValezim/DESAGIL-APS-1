@@ -9,17 +9,16 @@ public class Testador {
 		
 		double totalCarrinho = caixa.mostrarTotal(carrinho);
 		
-		assertEquals(0, totalCarrinho, 0.000001);
+		assertEquals(0.0, totalCarrinho, 0.000001);
 		
 		return true;
 	}
 
 	public boolean testeB() {
-		Produto produto = new Produto(123, "camiseta", 99.99);
+		Produto produto = new Produto(123, "Camiseta", 99.99);
 		Carrinho carrinho = new Carrinho();
+		carrinho.insereCarrinho(produto);
 		Caixa caixa = new Caixa();
-		
-		caixa.adicionarCaixa(produto, 0);
 		
 		double totalCarrinho = caixa.mostrarTotal(carrinho);
 		
@@ -29,25 +28,56 @@ public class Testador {
 	}
 
 	public boolean testeC() {
-		Produto produto = new Produto(123, "camiseta", 99.99);
-		Pedido pedido = new Pedido(produto);
+		Produto produtoUm = new Produto(001, "Calça", 149.99);
 		Carrinho carrinho = new Carrinho();
+		carrinho.insereCarrinho(produtoUm);
 		Caixa caixa = new Caixa();
-		
-		caixa.adicionarCaixa(produto, 10);
+		caixa.adicionarDesconto(produtoUm, 40);
 		
 		double totalCarrinho = caixa.mostrarTotal(carrinho);
 		
-		assertEquals(89.991, totalCarrinho, 0.000001);
+		assertEquals(89.994, totalCarrinho, 0.000001);
+		
+		return false;
+	}
+
+	public boolean testeD() {
+		Produto produtoUm = new Produto(001, "Calça", 149.99);
+		Produto produtoDois = new Produto(002, "Meia", 24.99);
+		
+		Carrinho carrinho = new Carrinho();
+		Caixa caixa = new Caixa();
+		
+		carrinho.insereCarrinho(produtoUm);
+		carrinho.insereCarrinho(produtoDois);
+		carrinho.insereCarrinho(produtoDois);
+		
+		caixa.adicionarDesconto(produtoUm, 35);
+		
+		double totalCarrinho = caixa.mostrarTotal(carrinho);
+		
+		assertEquals(182.477, totalCarrinho, 0.000001);
 		
 		return true;
 	}
 
-	public boolean testeD() {
-	    return false;
-	}
-
 	public boolean testeE() {
-	    return false;
+		Produto produtoUm = new Produto(001, "Calça", 149.99);
+		Produto produtoDois = new Produto(002, "Meia", 24.99);
+		
+		Carrinho carrinho = new Carrinho();
+		Caixa caixa = new Caixa();
+		
+		carrinho.insereCarrinho(produtoUm);
+		carrinho.insereCarrinho(produtoUm);
+		carrinho.insereCarrinho(produtoDois);
+		
+		caixa.adicionarDesconto(produtoUm,30);
+		
+		double totalCarrinho = caixa.mostrarTotal(carrinho);
+		
+		assertEquals(234.976, totalCarrinho, 0.000001);
+		
+	    return true;
 	}
 }
